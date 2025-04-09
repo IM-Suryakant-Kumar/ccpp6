@@ -19,10 +19,14 @@
 	body {
 		@apply bg-primary;
 	}
+
+  main {
+    @apply w-[95%] md:w-[90%] mx-auto;
+  }
 }
 
 @layer components {
   .btn {
-    @apply bg-logo text-primary font-semibold border-2 px-4 py-2 rounded-full hover:bg-primary hover:text-logo;
+    @apply bg-logo text-primary text-sm md:text-base select-none font-secondary font-semibold uppercase border-2 px-4 py-2 rounded-full hover:bg-primary hover:text-logo;
   }
 }
