@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #ebf2fa;
-	--color-secondary: #cae9ff;
+	--color-primary: #cae9ff;
+	--color-secondary: #ebf2fa;
 	--color-logo: #3a86ff;
 	--font-primary: "Exo 2", sans-serif;
 	--font-secondary: "Cinzel", serif;
@@ -28,5 +28,9 @@
 @layer components {
   .btn {
     @apply bg-logo text-primary text-sm md:text-base select-none font-secondary font-semibold uppercase border-2 px-4 py-2 rounded-full hover:bg-primary hover:text-logo;
+  }
+
+  .logo {
+    @apply text-logo text-3xl font-secondary font-bold;
   }
 }
