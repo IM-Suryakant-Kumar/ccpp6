@@ -13,7 +13,7 @@
 	*,
 	*::after,
 	*::before {
-		@apply text-gray-900 font-primary;
+		@apply text-gray-900 font-primary text-logo;
 	}
 
 	body {
@@ -28,6 +28,10 @@
 	a.active {
 		@apply border-2 fill-logo border-logo rounded-full sm:border-none sm:bg-logo sm:text-primary sm:fill-primary;
 	}
+
+  .right-sidebar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer components {
