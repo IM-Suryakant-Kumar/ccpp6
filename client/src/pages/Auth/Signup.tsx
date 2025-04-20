@@ -25,6 +25,7 @@ const Signup = () => {
             {state?.message && <p className="error-message">{state.message}</p>}
             {/* input */}
             <input className="text-field mt-4" type="text" name="name" placeholder="Name: " />
+            <input className="text-field" type="text" name="username" placeholder="Username: " />
             <input className="text-field" type="email" name="email" placeholder="Email: " />
             <input className="text-field" type="password" name="password" placeholder="Password: " />
             {/* buttons */}

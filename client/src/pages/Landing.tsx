@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Landing = () => {
 	return (
-		<article className="min-h-screen flex flex-col md:flex-row justify-center md:justify-around items-center gap-4 text-center">
+		<article className="min-h-screen bg-secondary flex flex-col md:flex-row justify-center md:justify-around items-center gap-4 text-center">
 			<section className="flex flex-col items-center justify-center gap-4">
 				<img
 					className="p-2 border-8 border-logo rounded-full"
