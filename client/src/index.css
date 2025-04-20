@@ -13,7 +13,7 @@
 	*,
 	*::after,
 	*::before {
-		@apply text-gray-900 font-primary text-logo;
+		@apply text-gray-900 font-primary;
 	}
 
 	body {
@@ -21,17 +21,13 @@
 	}
 
   a {
-    @apply fill-logo text-logo
+    @apply fill-logo text-logo border-2 border-secondary sm:border-none;
   }
 
 	a:hover,
 	a.active {
 		@apply border-2 fill-logo border-logo rounded-full sm:border-none sm:bg-logo sm:text-primary sm:fill-primary;
 	}
-
-  .right-sidebar::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @layer components {
@@ -54,4 +50,14 @@
 	.text-field {
 		@apply text-sm outline-none p-1 border-b-2 border-logo inset-shadow-sm;
 	}
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

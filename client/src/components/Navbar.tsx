@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export const Navbar = () => {
 	return (
-		<article className="w-full h-25 sm:h-15 bg-secondary fixed top-0 left-0 flex items-center">
+		<article className="w-full h-25 sm:h-15 bg-secondary fixed top-0 left-0 z-10 flex items-center">
 			<section className="wrapper flex items-center justify-between gap-4 flex-wrap">
 				{/* logo and logo icon */}
 				<section className="flex items-center gap-2 sm:-order-1">
