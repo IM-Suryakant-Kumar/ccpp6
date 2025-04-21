@@ -5,3 +5,4 @@ export * from "./Navbar";
 export * from "./Sidebar";
 export * from "./RightSidebar";
 export * from "./Filters";
+export * from "./Posts";
