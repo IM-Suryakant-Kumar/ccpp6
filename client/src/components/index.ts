@@ -4,3 +4,4 @@ export * from "./Layouts/AuthLayout";
 export * from "./Navbar";
 export * from "./Sidebar";
 export * from "./RightSidebar";
+export * from "./Filters";
