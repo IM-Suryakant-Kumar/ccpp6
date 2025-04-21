@@ -7,8 +7,8 @@ export const Navbar = () => {
 			<section className="wrapper flex items-center justify-between gap-4 flex-wrap">
 				{/* logo and logo icon */}
 				<section className="flex items-center gap-2 sm:-order-1">
-					<img className="w-8 h-8 object-contain rounded-full" src="logo.svg" alt="logo image" />
-					<Link to="/home" className="text-2xl font-secondary font-bold text-logo">
+					<img className="w-8 h-8 object-contain rounded-full" src="/logo.svg" alt="logo image" />
+					<Link to="/home" className="text-2xl font-secondary font-bold text-logo border-none sm:bg-secondary">
 						ClenchSnap
 					</Link>
 				</section>

@@ -21,7 +21,7 @@ export const Sidebar = () => {
 		{
 			title: "Profile",
 			icon: MdOutlinePerson,
-			link: "/profile",
+			link: "/profile/username",
 		},
 		{
 			title: "Settings",
@@ -31,7 +31,8 @@ export const Sidebar = () => {
 	];
 
 	return (
-		<article className="w-full h-12 sm:border-r sm:border-logo bg-secondary fixed left-0 bottom-0 flex  items-center justify-around sm:w-[25%] sm:h-full sm:bg-primary sm:top-15 sm:flex-col sm:items-start sm:justify-start sm:gap-4 sm:pt-4">
+		<article className="w-full h-12 sm:border-r 
+     bg-secondary fixed left-0 bottom-0 flex  items-center justify-around sm:w-[25%] sm:h-full sm:bg-primary sm:top-15 sm:flex-col sm:items-start sm:justify-start sm:gap-4 sm:pt-4">
 			{sidebarList.map((item, idx) => (
 				<NavLink
 					className="flex items-center gap-4 rounded-full sm:w-4/5 sm:mx-auto sm:h-10"

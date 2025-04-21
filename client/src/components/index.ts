@@ -7,3 +7,4 @@ export * from "./RightSidebar";
 export * from "./Filters";
 export * from "./AddPost";
 export * from "./Posts";
+export * from "./ProfileFilter";

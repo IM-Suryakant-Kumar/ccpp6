@@ -22,10 +22,10 @@ const App = () => {
 				<Route element={<HostLayout />}>
 					<Route path="home" element={<Home />} />
 					<Route path="explore" element={<Explore />} />
-					<Route path="profile" element={<Profile />}>
-						<Route index element={<Posts />} />
+					<Route path="profile/:username" element={<Profile />}>
+						{/* <Route index element={<Posts />} />
 						<Route path="liked" element={<LikedPosts />} />
-						<Route path="saved" element={<SavedPosts />} />
+						<Route path="saved" element={<SavedPosts />} /> */}
 					</Route>
 					<Route path="settings" element={<Setting />} />
 				</Route>
