@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Filters, Posts } from "../../components";
+import { AddPost, Filters, Posts } from "../../components";
 
 const Home = () => {
 	const [filter, setFilter] = useState("recent");
@@ -7,6 +7,7 @@ const Home = () => {
 	return (
 		<article className="max-w-xl mx-auto">
       <Filters filter={filter} setFilter={setFilter} />
+      <AddPost />
       <Posts />
 		</article>
 	);

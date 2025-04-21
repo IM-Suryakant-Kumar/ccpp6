@@ -9,7 +9,7 @@ export const Filters: React.FC<Props> = ({ filter, setFilter }) => {
 	};
 
 	return (
-		<section className="flex justify-between items-center gap-4 mx-2 py-4 border-b-2 border-blue-200">
+		<section className="flex justify-between items-center gap-4 mx-2 py-4 border-b-2 border-gray-400">
 			<button
 				className={`filters-btn ${filter === "recent" && "bg-logo text-primary"}`}
 				onClick={() => handleFilter("recent")}
