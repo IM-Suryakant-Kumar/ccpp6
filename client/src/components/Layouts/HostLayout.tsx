@@ -10,7 +10,7 @@ export const HostLayout = () => {
 			<Navbar />
 			<Sidebar />
 			<article
-				className={`wrapper mb-12 sm:mb-0 mt-25 sm:mt-15 sm:ml-[25%] sm:w-[75%] ${
+				className={`wrapper mb-15 sm:mb-4 mt-25 sm:mt-15 sm:ml-[25%] sm:w-[75%] ${
 					(pathname === "/home" || pathname === "/explore") && "md:w-[45%]"
 				}`}
 			>

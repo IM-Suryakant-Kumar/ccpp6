@@ -1,42 +1,33 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { AuthLayout, HostLayout, Layout } from "./components";
-import {
-	Explore,
-	Home,
-	Landing,
-	LikedPosts,
-	Login,
-	NotFound,
-	Posts,
-	Profile,
-	SavedPosts,
-	Setting,
-	Signup,
-} from "./pages";
+import { Explore, Home, Landing, Login, NotFound, Profile, Setting, Signup } from "./pages";
 
 const App = () => {
-	const router = createBrowserRouter(
-		createRoutesFromElements(
-			<Route path="/" element={<Layout />}>
-				<Route index element={<Landing />} />
-				<Route element={<HostLayout />}>
-					<Route path="home" element={<Home />} />
-					<Route path="explore" element={<Explore />} />
-					<Route path="profile/:username" element={<Profile />}>
-						{/* <Route index element={<Posts />} />
-						<Route path="liked" element={<LikedPosts />} />
-						<Route path="saved" element={<SavedPosts />} /> */}
-					</Route>
-					<Route path="settings" element={<Setting />} />
-				</Route>
-				<Route element={<AuthLayout />}>
-					<Route path="login" element={<Login />} />
-					<Route path="signup" element={<Signup />} />
-				</Route>
-				<Route path="*" element={<NotFound />} />
-			</Route>
-		)
-	);
+	const router = createBrowserRouter([
+		{
+			element: <Layout />,
+			children: [
+				{ path: "/", element: <Landing /> },
+				{
+					element: <HostLayout />,
+					children: [
+						{ path: "home", element: <Home /> },
+						{ path: "explore", element: <Explore /> },
+						{ path: "Profile/:username", element: <Profile /> },
+						{ path: "settings", element: <Setting /> },
+					],
+				},
+				{
+					element: <AuthLayout />,
+					children: [
+						{ path: "login", element: <Login /> },
+						{ path: "signup", element: <Signup /> },
+					],
+				},
+				{ path: "*", element: <NotFound /> },
+			],
+		},
+	]);
 
 	return <RouterProvider router={router} />;
 };

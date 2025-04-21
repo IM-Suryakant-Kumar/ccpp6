@@ -23,7 +23,7 @@ export const Posts = () => {
 							</Link>
 							<BiDotsVerticalRounded className="fill-gray-600 cursor-pointer" size="1.5em" />
 						</header>
-						<section className="w-[80%] ml-15">
+						<section className="w-[80%] ml-15 pr-2 sm:pr-0">
 							<p className="text-gray-600">I don't really know what I'm doing atm</p>
 							<img
 								className="border border-gray-400 object-cover rounded-xl mt-4"
