@@ -20,9 +20,9 @@
 		@apply bg-primary;
 	}
 
-  a {
-    @apply fill-logo text-logo border-2 border-secondary sm:border-none;
-  }
+	a {
+		@apply fill-logo text-logo border-2 border-secondary sm:border-none;
+	}
 
 	a:hover,
 	a.active {
@@ -39,6 +39,10 @@
 		@apply bg-logo text-primary text-sm md:text-base select-none font-secondary font-semibold uppercase border-2 px-4 py-2 rounded-full hover:bg-primary hover:text-logo cursor-pointer;
 	}
 
+	.filters-btn {
+		@apply w-25 h-6 sm:w-30 sm:h-7 flex justify-center items-center font-secondary font-semibold text-xs sm:text-sm text-logo rounded-full hover:bg-logo hover:text-primary border-2 border-logo cursor-pointer;
+	}
+
 	.logo {
 		@apply text-logo text-3xl font-secondary font-bold;
 	}
@@ -53,11 +57,11 @@
 }
 
 @layer utilities {
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+	.scrollbar-none::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-none {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 }
