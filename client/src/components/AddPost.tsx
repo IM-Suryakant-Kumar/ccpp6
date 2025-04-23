@@ -10,7 +10,7 @@ export const AddPost = () => {
 	return (
 		<section className="m-2 p-2 mt-4 border border-gray-400 bg-secondary rounded-md flex gap-2">
 			<img
-				className="w-10 h-10 border-2 border-logo rounded-full"
+				className="w-10 h-10 border-3 border-logo rounded-full"
 				src="https://res.cloudinary.com/dyh9ryswk/image/upload/v1700773081/clench_snap/rw2g3c6pcmf16byngogv.jpg"
 				alt=""
 			/>

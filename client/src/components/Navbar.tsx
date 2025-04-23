@@ -14,7 +14,7 @@ export const Navbar = () => {
 				</section>
 				{/* profile pic */}
 				<img
-					className="w-8 h-8 object-contain p-0.5 border-2 border-logo rounded-full"
+					className="w-8 h-8 object-contain p-0.5 border-3 border-logo rounded-full"
 					src="https://res.cloudinary.com/dyh9ryswk/image/upload/v1700768960/clench_snap/nfrvxf2mvfsy36u1cq8o.png"
 					alt="profile pic"
 				/>
