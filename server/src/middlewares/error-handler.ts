@@ -1,12 +1,12 @@
-import { Errback, NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
-type Error = {
-	statusCode?: number;
-	message?: string;
-};
+interface IError {
+	statusCode: number;
+	message: string;
+}
 
 export const errorHandlerMiddleware = (
-	err: Error,
+	err: IError,
 	req: Request,
 	res: Response,
 	next: NextFunction
@@ -16,5 +16,5 @@ export const errorHandlerMiddleware = (
 		message: err.message || "Something went wrong",
 	};
 
-	res.status(customError.statusCode).json({ success: false, message: err.message });
+	res.status(customError.statusCode).json({ success: false, message: err.message, err });
 };

@@ -5,33 +5,18 @@ import { IUser } from "../types";
 
 const UserSchema = new Schema<IUser>(
 	{
-		name: {
-			type: String,
-			minlength: [3, "name should not be less than 3 characters"],
-			required: [true, "please provide name"],
-		},
-		username: {
-			type: String,
-			required: [true, "please provide username"],
-			minlength: [3, "username should not be less than 3 characters"],
-			unique: [true, "username is already exists"],
-		},
-		email: {
-			type: String,
-			required: [true, "please provide email"],
-			unique: [true, "email is already exists"],
-		},
-		password: {
-			type: String,
-			required: [true, "Please provide password"],
-			minlength: [4, "password should not be less than 3 characters"],
-			select: false,
-		},
+		name: { type: String, required: true },
+		username: { type: String, required: true, unique: true },
+		email: { type: String, required: true, unique: true },
+		password: { type: String, required: true, select: false },
 		avatar: { type: String },
 		bio: { type: String },
 		website: { type: String },
-		followers: [{ type: String, required: true }],
-		followings: [{ type: String, required: true }],
+		followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
+		followings: [{ type: Schema.Types.ObjectId, ref: "User" }],
+		posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+		likedPosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+		savedPosts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 	},
 	{ timestamps: true }
 );
