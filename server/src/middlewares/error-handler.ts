@@ -1,12 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-
-interface IError {
-	statusCode: number;
-	message: string;
-}
+import mongoose from "mongoose";
 
 export const errorHandlerMiddleware = (
-	err: IError,
+	err: any,
 	req: Request,
 	res: Response,
 	next: NextFunction
@@ -16,5 +12,20 @@ export const errorHandlerMiddleware = (
 		message: err.message || "Something went wrong",
 	};
 
-	res.status(customError.statusCode).json({ success: false, message: err.message, err });
+	if (err instanceof mongoose.Error.ValidationError) {
+		customError.message = Object.values(err.errors).map(e => e.message).join(", ")
+		customError.statusCode = 400;
+	} 
+  
+  if (err instanceof mongoose.Error.CastError) {
+    customError.message = "Invalid ID format.";
+    customError.statusCode = 400;
+  }
+
+  if (err.name === "MongoServerError" && err.code === 11000) {
+    customError.message = `${Object.keys(err.keyValue)} is already exists.`;
+    customError.statusCode = 409;
+  }
+  
+	res.status(customError.statusCode).json({ success: false, message: customError.message });
 };

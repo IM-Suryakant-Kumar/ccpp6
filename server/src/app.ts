@@ -23,7 +23,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 (async () => {
 	try {
-		// await connectDB(process.env.MONGO_URL as string);
+		await connectDB(process.env.MONGO_URL as string);
 		app.listen(PORT, () => console.log(`App is running at http://localhost:${PORT}`));
 	} catch (error) {
 		console.error(error);

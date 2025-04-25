@@ -3,12 +3,32 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { IUser } from "../types";
 
-const UserSchema = new Schema<IUser>(
+const userSchema = new Schema<IUser>(
 	{
-		name: { type: String, required: true },
-		username: { type: String, required: true, unique: true },
-		email: { type: String, required: true, unique: true },
-		password: { type: String, required: true, select: false },
+		name: {
+			type: String,
+			required: [true, "Please Provide name"],
+			minlength: [3, "Name should not be less than 3 and greater than 20 characters"],
+			maxlength: [20, "Name should not be less than 3 and greater than 20 characters"],
+		},
+		username: {
+			type: String,
+			required: [true, "Please Provide username"],
+			minlength: [3, "Username should not be less than 3 and greater than 20 characters"],
+			maxlength: [20, "Username should not be less than 3 and greater than 20 characters"],
+			unique: true,
+		},
+		email: {
+			type: String,
+			required: [true, "Please Provide email"],
+			unique: true,
+		},
+		password: {
+			type: String,
+			required: [true, "Please Provide password"],
+			minlength: [3, "Password should not be less than 3 characters"],
+			select: false,
+		},
 		avatar: { type: String },
 		bio: { type: String },
 		website: { type: String },
@@ -21,20 +41,18 @@ const UserSchema = new Schema<IUser>(
 	{ timestamps: true }
 );
 
-UserSchema.pre("save", async function () {
+userSchema.pre("save", async function () {
 	if (!this.isModified("password")) return;
 	const salt = await bcrypt.genSalt(10);
 	this.password = await bcrypt.hash(this.password, salt);
 });
 
-UserSchema.methods.comparePassword = async function (candidatePassword: string) {
+userSchema.methods.comparePassword = async function (candidatePassword: string) {
 	return await bcrypt.compare(candidatePassword, this.password);
 };
 
-UserSchema.methods.createJWTToken = function () {
-	return jwt.sign({ _id: this._id, name: this.name }, process.env.JWT_SECRET as string, {
-		expiresIn: "5d",
-	});
+userSchema.methods.createJWTToken = function () {
+	return jwt.sign({ userId: this._id, name: this.name }, process.env.JWT_SECRET as string);
 };
 
-export const User = model<IUser>("User", UserSchema);
+export const User = model<IUser>("User", userSchema);

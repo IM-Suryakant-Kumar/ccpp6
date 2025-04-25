@@ -1,6 +1,11 @@
-import { Document, Schema } from "mongoose";
+import { Request } from "express";
 
-export interface IUser extends Document {
+export interface IReq extends Request {
+	user?: IUser;
+}
+
+export interface IUser {
+  _id: string;
 	name: string;
 	username: string;
 	email: string;
@@ -18,8 +23,9 @@ export interface IUser extends Document {
 	createJWTToken: () => string;
 }
 
-export interface IPost extends Document {
-	user: IUser;
+export interface IPost {
+  _id: string;
+	author: IUser;
 	content: string;
 	image: string;
 	liked: IUser[];
@@ -27,8 +33,9 @@ export interface IPost extends Document {
 	comments: IComment[];
 }
 
-export interface IComment extends Document {
-	user: IUser;
+export interface IComment {
+  _id: string;
+	author: IUser;
 	content: string;
-  liked: IUser[];
+	liked: IUser[];
 }
